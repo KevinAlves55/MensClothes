@@ -1,0 +1,423 @@
+@mixin Resert {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+}
+
+@mixin Display-Flex($direction, $justify, $align) {
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+*,
+::before,
+::after {
+    @include Resert();
+}
+
+body {
+    height: 340vh;
+    background-color: aqua;
+    display: flex;
+    @include Display-Flex(column, flex-start, center);
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(207, 207, 207, 0.883);
+}
+
+h3, h4 {
+    font-weight: normal;
+}
+
+.container {
+    height: inherit;
+    width: 1200px;
+    display: flex;
+    @include Display-Flex(row, space-between, center);
+}
+
+header {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    @include Display-Flex(row, center, flex-start);
+    background-color: rgb(226, 226, 226);
+
+    #logo {
+        height: inherit;
+        width: 328px;
+        display: flex;
+        @include Display-Flex(column, center, flex-start);
+
+        h1 {
+            color: black;
+            font-weight: 700;
+            font-size: 2.5rem;
+
+            span {
+                font-weight: 300;
+            }
+        }
+
+        h2 {
+            color: black;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+    }
+
+    #input-carrinho {
+        height: 250px;
+        display: flex;
+        @include Display-Flex(row, space-between, center);
+        gap: 20px;
+    }
+
+    #lupa {
+        height: inherit;
+        width: 183px;
+        display: flex;
+        @include Display-Flex(row, flex-start, center);
+
+        input {
+            height: 29px;
+            width: 183px;
+            border-radius: 6px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        img {
+            height: 20px;
+            width: 20px;
+            position: relative;
+            left: -30px;
+            cursor: pointer;
+        }
+    }
+
+    #carrinho {
+        height: 29px;
+        width: 160px;
+        display: flex;
+        @include Display-Flex(row, space-around, center);
+        cursor: pointer;
+        background-color: white;
+        border-radius: 6px;
+        border: 1px solid black;
+        transition: 0.5s;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+        }
+
+        img {
+            height: 29px;
+            width: 29px;
+        }
+
+        span {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+    }
+}
+
+main {
+    height: 2046px;
+    width: 1200px;
+    background-color: white;
+    display: flex;
+    @include Display-Flex(row, center, flex-start);
+
+    .main-container {
+        height: inherit;
+        width: 1064px;
+        display: flex;
+        @include Display-Flex(column, flex-start, flex-start);
+
+        nav {
+            height: 49px;
+            width: inherit;
+            border-radius: 3px;
+
+            ul {
+                height: inherit;
+                width: inherit;
+                display: flex;
+                @include Display-Flex(row, flex-start, center);
+
+                li {
+                    height: inherit;
+                    width: 100px;
+                    display: flex;
+                    @include Display-Flex(row, center, center);
+
+                    a {
+                        font-size: 0.9rem;
+                        color: black;
+                        text-transform: uppercase;
+                        transition: 0.5s;
+
+                        &:hover {
+                            color: silver;
+                        }
+                    }
+                }
+            }
+        }
+
+        #galeria {
+            height: 501px;
+            width: inherit;
+            display: flex;
+            @include Display-Flex(row, space-between, flex-start);
+
+            #banner-principal {
+                height: inherit;
+                width: 698px;
+                display: flex;
+                @include Display-Flex(row, flex-start, flex-start);
+
+                img {
+                    height: inherit;
+                    width: inherit;
+                }
+            }
+
+            #banners-secundarios {
+                height: 241px;
+                width: 347px;
+                display: flex;
+                @include Display-Flex(column, space-between, flex-start);
+                gap: 19px;
+
+                #cima {
+                    height: inherit;
+                    width: inherit;
+                    
+                    img {
+                        height: inherit;
+                        width: inherit;
+                    }
+                }
+
+                #baixo {
+                    height: inherit;
+                    width: inherit;
+                    
+                    img {
+                        height: inherit;
+                        width: inherit;
+                    }
+                } 
+            }
+        }
+
+        h2 {
+            display: flex;
+            @include Display-Flex(row, flex-start, flex-start);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 25px;
+        }
+
+        #pratileira {
+            height: 1100px;
+            width: inherit;
+            display: flex;
+            @include Display-Flex(column, space-between, flex-start);
+            margin-top: 25px;
+
+            h6 {
+                display: flex;
+                @include Display-Flex(row, flex-start, flex-start);
+                font-size: 1.1rem;
+                font-weight: 500;
+                margin-top: 25px;
+                margin-bottom: 25px;
+            }
+
+            .box {
+                height: 500px;
+                width: inherit;
+                display: flex;
+                @include Display-Flex(row, space-between, flex-start);
+
+                .produtos {
+                    height: inherit;
+                    width: 250px;
+                    display: flex;
+                    @include Display-Flex(column, space-between, center);
+
+                    .imagem-produto, img {
+                        height: 400px;
+                        width: inherit;
+                        transition: all 0.5s;
+
+                        .imagem-produto, img:hover {
+                            transform: scale(1.1);
+                            transition: all 0.5s;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .titulo-produto {
+                        color: black;
+                        font-size: 1rem;
+                    }
+
+                    .discricao-produto {
+                        color: black;
+                        font-size: 0.8rem;
+                        font-style: italic;
+                    }
+
+                    button {
+                        height: 40px;
+                        width: 140px;
+                        background-color: black;
+                        color: white;
+                        border: 1px solid black;
+                        border-radius: 2px;
+                        cursor: pointer;
+                        font-size: 1rem;
+                        transition: 0.5s;
+
+                        &:hover {
+                            transform: scale(1.1);
+                            transition: all 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+
+        #box-card {
+            height: 325px;
+            width: inherit;
+            display: flex;
+            @include Display-Flex(row, space-between, flex-start);
+            margin-top: 30px;
+
+            .card {
+                height: inherit;
+                width: 335px;
+
+                img {
+                    height: inherit;
+                    width: inherit;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        transform: scale(1.1);
+                        transition: all 0.5s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    height: 388px;
+    width: 1200px;
+    background-color: white;
+
+    .flex {
+        display: flex;
+        width: 1064px;
+        margin: auto;
+        @include Display-Flex(row, space-between, flex-start);
+
+        .rodape-main {
+            height: 388px;
+            width: 266px;
+            display: flex;
+            @include Display-Flex(column, flex-start, flex-start);
+
+            h6 {
+                color: black;
+                font-size: 1.3rem;
+                margin-top: 20px;
+                font-weight: 400;
+            }
+
+            ul {
+                height: 210px;
+                display: flex;
+                @include Display-Flex(column, flex-start, flex-start);
+                margin-top: 35px;
+
+                li {
+                    height: 20px;
+                    width: inherit;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    margin-bottom: 15px;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        #rodape-main-contato {
+            height: 184px;
+            width: 188px;
+            align-self: center;
+            display: flex;
+            @include Display-Flex(column, flex-start, flex-start);
+
+            h6 {
+                color: black;
+                font-size: 1.3rem;
+                font-weight: 400;
+                margin-bottom: 10px;
+            }
+
+            .contatos {
+                height: 25px;
+                width: 188px;
+                display: flex;
+                @include Display-Flex(row, flex-start, flex-end);
+                margin-top: 10px;
+
+                h6 {
+                    font-size: 0.8rem;
+                    color: black;
+                    font-weight: 600;
+                    margin-left: 10px;
+
+                    &:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+
+                img {
+                    height: 25px;
+                    width: 25px;
+                }
+            }
+
+            #redes-sociais {
+                height: 159px;
+                width: inherit;
+                display: flex;
+                @include Display-Flex(row, space-between, center);
+
+                img {
+                    height: 35px;
+                    width: 35px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
