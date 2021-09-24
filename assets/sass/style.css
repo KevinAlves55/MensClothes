@@ -11,7 +11,6 @@
 }
 
 body {
-  height: 340vh;
   background-color: aqua;
   display: -webkit-box;
   display: -ms-flexbox;
